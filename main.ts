@@ -5,6 +5,7 @@ const { exec } = require('child_process');
 
 interface QuartzPublishButtonPluginSettings {
     quartzPath: string;
+    commandOverride?: string; // New optional field for command override
 }
 
 const DEFAULT_SETTINGS: QuartzPublishButtonPluginSettings = {
@@ -65,7 +66,12 @@ export default class QuartzPublishButtonPlugin extends Plugin {
 
         new Notice('Publishing with Quartz...');
 
-        exec(`cd ${this.settings.quartzPath} && npx quartz sync`, (error, stdout, stderr) => {
+        // Use commandOverride if it exists, otherwise use the default command
+        const command = this.settings.commandOverride 
+            ? this.settings.commandOverride 
+            : `cd ${this.settings.quartzPath} && npx quartz sync`;
+
+        exec(command, (error, stdout, stderr) => {
             if (error) {
                 new Notice(`Execution Error: ${error.message}`, 40000);
                 return;
@@ -81,7 +87,7 @@ export default class QuartzPublishButtonPlugin extends Plugin {
     }
 }
 
-// Settings Tab for configuring the Quartz repository path
+// Settings Tab for configuring the Quartz repository path and command override
 class QuartzPublishButtonPluginSettingTab extends PluginSettingTab {
     plugin: QuartzPublishButtonPlugin;
 
@@ -102,6 +108,17 @@ class QuartzPublishButtonPluginSettingTab extends PluginSettingTab {
                 .setValue(this.plugin.settings.quartzPath)
                 .onChange(async (value) => {
                     this.plugin.settings.quartzPath = value;
+                    await this.plugin.saveSettings();
+                }));
+
+        new Setting(containerEl)
+            .setName('Command Override')
+            .setDesc('Override the default Quartz sync command. Use only if you know what you\'re doing.')
+            .addText(text => text
+                .setPlaceholder('Command override')
+                .setValue(this.plugin.settings.commandOverride || '')
+                .onChange(async (value) => {
+                    this.plugin.settings.commandOverride = value;
                     await this.plugin.saveSettings();
                 }));
     }

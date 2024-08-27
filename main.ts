@@ -32,7 +32,7 @@ export default class QuartzPublishButtonPlugin extends Plugin {
         });
 
         // Add the settings tab to configure the plugin
-        this.addSettingTab(new QuartzSettingTab(this.app, this));
+        this.addSettingTab(new QuartzPublishButtonPluginSettingTab(this.app, this));
     }
 
     async loadSettings() {
@@ -82,7 +82,7 @@ export default class QuartzPublishButtonPlugin extends Plugin {
 }
 
 // Settings Tab for configuring the Quartz repository path
-class QuartzSettingTab extends PluginSettingTab {
+class QuartzPublishButtonPluginSettingTab extends PluginSettingTab {
     plugin: QuartzPublishButtonPlugin;
 
     constructor(app: App, plugin: QuartzPublishButtonPlugin) {

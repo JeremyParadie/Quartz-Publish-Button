@@ -23,4 +23,4 @@ This Obsidian plugin is intended to be used with [Quartz](https://github.com/jac
 1. Open Settings
 2. On the "Quartz Publish Button" page, enter the location of the directory of your Quartz installation.
 
-Congrats! Now you can press the rocket icon whenever you want to publish via Quartz!
+Congrats! Now you can press the rocket icon in the ribbon whenever you want to publish via Quartz!

@@ -8,7 +8,7 @@ interface QuartzPublishButtonPluginSettings {
 }
 
 const DEFAULT_SETTINGS: QuartzPublishButtonPluginSettings = {
-    quartzPath: 'default'
+    quartzPath: ''
 }
 
 export default class QuartzPublishButtonPlugin extends Plugin {
@@ -18,7 +18,7 @@ export default class QuartzPublishButtonPlugin extends Plugin {
         await this.loadSettings();
 
         // Create a button in the ribbon (left sidebar)
-        const ribbonIconEl = this.addRibbonIcon('rocket', 'Sync to Quartz', () => {
+        const ribbonIconEl = this.addRibbonIcon('rocket', 'Run Quartz Sync', () => {
             this.runQuartzSync();
         });
 
@@ -95,7 +95,7 @@ class QuartzPublishButtonPluginSettingTab extends PluginSettingTab {
         containerEl.empty();
 
         new Setting(containerEl)
-            .setName('Quartz Repository Location')
+            .setName('Quartz repository location')
             .setDesc('The path to the folder that contains the Quartz files.')
             .addText(text => text
                 .setPlaceholder('Quartz repo path')

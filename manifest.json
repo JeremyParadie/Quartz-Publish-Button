@@ -1,11 +1,10 @@
 {
 	"id": "Quartz-Publish-Button",
 	"name": "Quartz Publish Button",
-	"version": "1.0.0",
-	"minAppVersion": "0.15.0",
-	"description": "An Obsidian plugin to create a button to run `npx quartz sync`",
+	"version": "1.0.1",
+	"minAppVersion": "1.7.0",
+	"description": "Add a button to run `npx quartz sync`.",
 	"author": "Jeremy Paradie",
 	"authorUrl": "https://jeremyparadie.com",
-	"fundingUrl": "",
-	"isDesktopOnly": false
+	"isDesktopOnly": true
 }

@@ -4,7 +4,7 @@ This is a simple plugin that adds a button in the ribbon (left sidebar) of Obsid
 
 This Obsidian plugin is intended to be used with [Quartz](https://github.com/jackyzha0/quartz), a static site generator commonly used to create websites from Obsidian markdown files. Usage of this plugin assumes you have already installed and set up Quartz and Github.
 
-### How to install via BRAT
+## How to install via BRAT
 1. Open an Obsidian vault
 2. Open Settings
 3. On the "Community plugins" page, Turn on community plugins if not on already.
@@ -19,7 +19,7 @@ This Obsidian plugin is intended to be used with [Quartz](https://github.com/jac
 8. Keep "Enable after installing the plugin" checked
 9. Click "Add Plugin" button
 
-### How to set up the plugin
+## How to set up the plugin
 1. Open Settings
 2. On the "Quartz Publish Button" page, enter the location of the directory of your Quartz installation.
 

@@ -1,7 +1,6 @@
-import { App, Plugin, PluginSettingTab, Setting, Notice, normalizePath } from 'obsidian';
 import * as fs from 'fs';
-
-const { exec } = require('child_process');
+import { exec, ExecException } from 'child_process';
+import { App, Plugin, PluginSettingTab, Setting, Notice, normalizePath } from 'obsidian';
 
 interface QuartzPublishButtonPluginSettings {
     quartzPath: string;
@@ -71,7 +70,7 @@ export default class QuartzPublishButtonPlugin extends Plugin {
             ? this.settings.commandOverride 
             : `cd ${this.settings.quartzPath} && npx quartz sync`;
 
-        exec(command, (error, stdout, stderr) => {
+        exec(command, (error: ExecException | null, stdout: string, stderr: string) => {
             if (error) {
                 new Notice(`Execution Error: ${error.message}`, 40000);
                 return;

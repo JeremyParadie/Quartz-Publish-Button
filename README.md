@@ -1,6 +1,6 @@
 # Quartz Publish Button, an Obsidian Plugin
 
-This Obsidian plugin is intended to be used with [Quartz](https://github.com/jackyzha0/quartz), a static site generator commonly used to create websites from Obsidian markdown files. 
+This Obsidian plugin is intended to be used with [Quartz](https://github.com/jackyzha0/quartz), a static site generator commonly used to create websites from Obsidian markdown files. Usage of this plugin assumes you have already installed and set up Quartz and Github.
 
 This is a simple plugin that adds a button in the ribbon (left sidebar) of Obsidian. When the button is pressed, the command `npx quartz sync` is run, which will use the content in the Quartz directory specified in the plugin settings page to build and publish a static site. 
 
